@@ -1,13 +1,13 @@
 import math
 up,down, goal = input().split()
-up = int(up)
-down = int(down)
-goal = int(goal)
+up = int(up) #4
+down = int(down) #3
+goal = int(goal) #20
 D = 0
-count = 0
-x = (up + down)/2
-count = goal / x
-print(count)
+goal = goal - down
+x = up - down
+D = goal/x
+print(math.ceil(D))
 
 
 
