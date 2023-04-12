@@ -1,40 +1,29 @@
-N = int(input())
-board = [[0]*(2**N) for _ in range(2**N)]
+N, r, c = map(int, input().split()) #2 3 1
 
-r = int(input())
-c = int(input())
-board[c][r] = 1
-print(board) 
+ans = 0
 
-count = 0
-def move(x,y): #0 0, 0 1, 1 0, 1 1,  0 2, 0 3, 1 2, 1 3,2 0, 2 1
-    global count
-    if (board[x][y] == 1):
-        return count
-    board[x][y] = 1 # 현재 위치를 방문한 것으로 표시
-    if(x == 0 or x % 2 == 0):
-        if(y == 0):
-            count += 1
-            return move(x + 1, 0)
-        elif(y == len(board)-1 or y % 2 == 1): 
-            count+=1
-            return move(x+1,y-1)
-        elif(y % 2 == 0):
-            count+=1
-            return move(x,y+1)
-    elif(x == 1 or x % 2 == 1):
-        if(y == 0):
-            count += 1
-            return move(x + 1, 0)
-        elif(y == len(board)-1 or y % 2 == 1): 
-            count+=1
-            return move(x-1,y+1)
-        elif(y % 2 == 0):
-            count+=1
-            return move(x,y+1)
+while N != 0:
+
+	N -= 1 #1
+
+	# 1사분면
+	if r < 2 ** N and c < 2 ** N:
+		ans += ( 2 ** N ) * ( 2 ** N ) * 0
+
+	# 2사분면
+	elif r < 2 ** N and c >= 2 ** N: 
+		ans += ( 2 ** N ) * ( 2 ** N ) * 1
+		c -= ( 2 ** N )
+        
+	# 3사분면    
+	elif r >= 2 ** N and c < 2 ** N: 
+		ans += ( 2 ** N ) * ( 2 ** N ) * 2
+		r -= ( 2 ** N )
+        
+	# 4사분면    
+	else:
+		ans += ( 2 ** N ) * ( 2 ** N ) * 3
+		r -= ( 2 ** N )
+		c -= ( 2 ** N )
     
-    return count # count 변수를 리턴해줌
-   
-move(0,0)
-print(count)
-
+print(ans)
