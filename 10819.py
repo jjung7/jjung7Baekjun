@@ -15,6 +15,7 @@ for i in all:
     if ans<s:
         ans =s
 print(ans)
+
 # import sys
 # from itertools import permutations
 # T = int(input())
@@ -27,7 +28,7 @@ print(ans)
 #     if (t > add):
 #         add = t
     
-# print(add)
+# print(add)   
 #20 1 15 4 10 8
 # (15 - 1) + (1 - 13)
 #19 14 11 6 2

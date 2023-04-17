@@ -5,5 +5,5 @@ def Hanoi(n,start, end):
     print(start,end)
     if n > 1:
         Hanoi(n-1,6-start-end, end)
-    
+
 Hanoi(n,1,3)  

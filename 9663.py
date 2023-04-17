@@ -1,57 +1,28 @@
-# N = int(input())
-# list = [0] * N
-# ans = 0
-# def check(a):
-#     for i in range(a):
-#         if list[a] == list[i] or abs(list[a] - list[a]) == abs(a - i):
-#             return False
-#     return True
-    
-# def queen(a):
-#     global ans
-#     if a == N:
-#         ans+= 1 
-#         return
-#     else:
-#         for i in range(N):
-#             list[a] = i
-#             if(check(a)):
-#                 queen(a+1)
-# queen(0)
-# print(ans)
 
-
-n = int(input())
-lst = [0]*n
+N = int(input())
+list = [0] * N
 ans = 0
-
-def queen(a):
-    global ans
-    if a == n:
-        ans += 1
-        return
-    else:
-        for i in range(n):
-            lst[a] = i
-            if check(a):
-                queen(a+1)            
-
-
 def check(a):
     for i in range(a):
-        if lst[a] == lst[i] or abs(lst[a]-lst[i]) == abs(a-i):
+        if list[a] == list[i] or abs(list[a] - list[a]) == abs(a - i):
             return False
     return True
-
+    
+def queen(a):
+    global ans
+    if a == N:
+        ans+= 1 
+        return
+    else:
+        for i in range(N):
+            list[a] = i
+            if(check(a)):
+                queen(a+1)
 queen(0)
 print(ans)
-for i in range(n):
-    for j in range(n):
-        if list[i] == j:
-            print("Q", end=" ")
-        else:
-            print(".", end=" ")
-    print()
+
+
+
 
 
 # def adjacent(x): # x와 i 가 같으면 행이 같은거 근데 for문을 보면 x와 i가 같을 수가 없다.

@@ -22,8 +22,8 @@ target_sum = total_height - 100
 for i in range(9):
     for j in range(i + 1, 9):
         if heights[i] + heights[j] == target_sum:
-            heights.remove(heights[i])
-            heights.remove(heights[j])
+            del heights[j]
+            del heights[i]
             break
     if len(heights) == 7:
         break

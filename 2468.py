@@ -1,6 +1,7 @@
 
 import sys
-sys.setrecursionlimit(10000) # 재귀 함수 깊이 한계 설정
+sys.setrecursionlimit(100000) # 재귀 함수 깊이 한계 설정
+
 
 def dfs(x, y, h):
     # 현재 위치 (x, y)가 범위를 벗어난 경우

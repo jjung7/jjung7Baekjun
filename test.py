@@ -1,8 +1,15 @@
-a, b = map(int,input().split())
-list1 = []
-list1 = list(map(int,input().split()))
-for i in range(a):
-    if(list1[i] < b):
-        print(list1[i], end=" ")
+def is_prime(a):
+    if a < 2:
+        return False
+    elif a == 2:
+        return True
+    for i in range(2,a):
+        if(a == i +1):
+            return True
+        elif(a % i == 0):
+            return False
+
+
+
                     
     
