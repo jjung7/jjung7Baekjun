@@ -10,6 +10,12 @@ for i in range(n):
         if(len(command) == j+1):
             if(command[j] == "("):
                 queue1.append("(")
+            elif command[j] == ")":
+                if queue1:
+                    queue1.pop()
+                else:
+                    print("NO")
+                    break
             if(len(queue1) == 0):
                 print("YES")
             else:

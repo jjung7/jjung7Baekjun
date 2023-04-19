@@ -1,0 +1,25 @@
+import heapq
+import sys
+# input = sys.stdin.readline
+# T = int(input())
+# heap = []
+# for i in range(T):
+#     x= int(input())
+#     heapq.heappush(heap,x)
+#     length = len(heap) -1
+#     if length % 2 == 0:
+#         print(heap[length//2],"r")
+#     else:
+#         print(min(heap[length//2],heap[length//2+1]),"s")
+input = sys.stdin.readline
+T = int(input())
+heap = []
+
+for i in range(T):
+    x = int(input())
+    heapq.heappush(heap, x)
+    length = len(heap) - 1
+    if length % 2 == 0:
+        print(heap[length // 2], "r")
+    else:
+        print(min(heap[length // 2], heap[length // 2 + 1]),"r")
