@@ -1,25 +1,28 @@
-import heapq
-import sys
+import sys, heapq
+
+input = sys.stdin.readline
+n = int(input())
+left = []
+right = []
+for i in range(n):
+	num = int(input())
+	if len(left) == len(right): # 둘의 길이가 똑같을 땐 왼쪽에 넣기
+		heapq.heappush(left, -num) # 첫 ~ 중간값인 왼쪽은 max_heap 구조
+	else: # 둘의 길이가 다를 땐 (=왼쪽이 클 때) 오른쪽에 넣기
+		heapq.heappush(right, num) # 중간값 ~ 끝인 오른쪽은 max_heap 구조
+	if right and -left[0] > right[0]: # 넣고 난 후 오른쪽이 존재할 경우 왼쪽에서 가장 큰 경우와 오른쪽에서 가장 작은 경우를 비교하여 왼쪽이 더 클 경우
+		heapq.heappush(left, -heapq.heappop(right)) # 두 수를 swap
+		heapq.heappush(right, -heapq.heappop(left))
+	print(-left[0])	# 왼쪽에서 가장 큰 값 = 중간값 출력
 # input = sys.stdin.readline
 # T = int(input())
 # heap = []
-# for i in range(T):
-#     x= int(input())
-#     heapq.heappush(heap,x)
-#     length = len(heap) -1
-#     if length % 2 == 0:
-#         print(heap[length//2],"r")
-#     else:
-#         print(min(heap[length//2],heap[length//2+1]),"s")
-input = sys.stdin.readline
-T = int(input())
-heap = []
 
-for i in range(T):
-    x = int(input())
-    heapq.heappush(heap, x)
-    length = len(heap) - 1
-    if length % 2 == 0:
-        print(heap[length // 2], "r")
-    else:
-        print(min(heap[length // 2], heap[length // 2 + 1]),"r")
+# for i in range(T):
+#     x = int(input())
+#     heapq.heappush(heap, x)
+#     length = len(heap) - 1
+#     if length % 2 == 0:
+#         print(heap[length // 2], "r")
+#     else:
+#         print(min(heap[length // 2], heap[length // 2 + 1]),"r")
